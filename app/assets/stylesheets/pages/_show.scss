@@ -1,0 +1,23 @@
+h2 {
+  color: $black-coffee;
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+  color: $black-coffee;
+}
+
+ul a {
+  color: $ruby;
+
+  &:hover {
+    color: $black-coffee;
+  }
+}
+
+.container-show {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
