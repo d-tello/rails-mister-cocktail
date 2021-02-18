@@ -1,1 +1,14 @@
 // Specific CSS for your home-page
+
+body {
+  background-color: $opal;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+h1 {
+  color: $black-coffee;
+  text-align: center;
+}

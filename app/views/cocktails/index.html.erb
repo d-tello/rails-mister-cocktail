@@ -1,28 +1,23 @@
+<div class="home-banner">
+  <h1>Welcome</h1>
+</div>
+<div class="container">
   <div class="row">
     <div class="col-12">
-      <h1>All our cocktails (
+      <h1 class="mt-4 mb-4">All our cocktails (
         <%= Cocktail.count %>)</h1>
     </div>
   </div>
-
   <div class="row">
     <% @cocktails.each do |cocktail| %>
-
     <div class="col-4 mb-3">
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1574579804640-a15fecaeda35)">
+   <%= link_to cocktail.name, cocktail_path(cocktail)   %>
+</div>
 
-      <div class="card one-edge-shadow" style="width: 18rem;">
-        <div class="card-body bg-light">
-          <h5 class="card-title">
-            <%= link_to cocktail.name, cocktail_path(cocktail)   %>
-          </h5>
-          <div>
-          </div>
 
-        </div>
-      </div>
 
     </div>
-  <% end %>
-    </div>
-
-    <%= link_to "Add new Cocktail", new_cocktail_path, class: "btn btn-outline-primary" %>
+    <% end %>
+  </div>
+</div>

@@ -10,3 +10,14 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+body>nav {
+  background-color: $black-coffee;
+}
+
+body>nav>a {
+  color: $opal;
+&:hover {
+  color: $opal;
+}
+}
