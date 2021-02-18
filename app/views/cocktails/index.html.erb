@@ -1,0 +1,27 @@
+  <div class="row">
+    <div class="col-12">
+      <h1>All our cocktails (
+        <%= Cocktail.count %>)</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <% @cocktails.each do |cocktail| %>
+
+    <div class="col-4 mb-3">
+
+      <div class="card one-edge-shadow" style="width: 18rem;">
+        <div class="card-body bg-light">
+          <h5 class="card-title">
+            <%= link_to cocktail.name, cocktail_path(cocktail)   %>
+          </h5>
+          <div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  <% end %>
+    </div>
