@@ -7,7 +7,8 @@
 <ul>
   <li>
     <%= dose.description %> |
-    <%= dose.ingredient.name %>
+    <%= dose.ingredient.name %> |
+    <td><%= link_to 'Destroy',  delete_path(dose), method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </li>
 </ul>
 <% end %>

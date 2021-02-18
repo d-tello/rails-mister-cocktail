@@ -13,13 +13,11 @@ class CocktailsController < ApplicationController
     @cocktail = Cocktail.new
   end
 
-  # def edit; end
-
   def create
     @cocktail = Cocktail.new(cocktail_params)
 
     if @cocktail.save
-      redirect_to cocktails_path, notice: 'Cocktail was successfully created.'
+      redirect_to cocktail_path(@cocktail), notice: 'Cocktail was successfully created.'
     else
       render :new
     end
