@@ -4,8 +4,8 @@
   </h1>
 </div>
 <div class="container">
-<div class="d-flex justify-content-between mt-4">
-  <div class="container-show-box">
+  <div class="row justify-content-between">
+  <div class="container-show-box col-12 col-lg-4 mt-4">
     <h2 class="mt-3 mb-3">Ingredient list</h2>
     <% @doses.each do |dose| %>
     <ul>
@@ -17,7 +17,7 @@
     </ul>
     <% end %>
   </div>
-  <div class="container-show-box">
+  <div class="container-show-box col-12 col-lg-4 mt-4">
     <h2>Add ingredients</h2>
     <%= simple_form_for [@cocktail, @dose] do |f| %>
     <%= f.error_notification %>
@@ -31,5 +31,5 @@
       <% end %>
     </div>
   </div>
-</div>
+  </div>
 </div>
