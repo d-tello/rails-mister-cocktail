@@ -19,5 +19,12 @@ ul a {
 .container-show {
   align-items: center;
   display: flex;
+  justify-content: space-between;
+}
+
+
+.container-show-box {
+  align-items: center;
+  display: flex;
   flex-direction: column;
 }
