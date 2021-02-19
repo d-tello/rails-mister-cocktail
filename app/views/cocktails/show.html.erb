@@ -10,11 +10,9 @@
     <% @doses.each do |dose| %>
     <ul>
       <li>
-        <p>
           <%= dose.description %> -
           <%= dose.ingredient.name %>
           <%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe,  delete_path(dose), method: :delete, data: { confirm: 'Are you sure?' } %>
-        </p>
       </li>
     </ul>
     <% end %>
