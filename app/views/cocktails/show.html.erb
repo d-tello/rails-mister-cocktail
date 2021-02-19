@@ -17,8 +17,8 @@
     </ul>
     <% end %>
   </div>
-  <div class="container-show-box col-12 col-lg-4 mt-4">
-    <h2>Add ingredients</h2>
+  <div class="container-show-box col-12 col-lg-4 mt-4 mb-4">
+    <h2 class="mt-3 mb-3">Add ingredients</h2>
     <%= simple_form_for [@cocktail, @dose] do |f| %>
     <%= f.error_notification %>
     <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
