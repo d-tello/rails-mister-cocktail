@@ -12,18 +12,12 @@ Ingredient.destroy_all
 Dose.destroy_all
 
 puts 'Creating ingredients...'
-Ingredient.create(name: 'lemon')
-Ingredient.create(name: 'ice')
-Ingredient.create(name: 'mint leaves')
-
-puts 'Creating cocktails...'
-Cocktail.create(name: 'Mojito')
-Cocktail.create(name: ' Long Island Iced Tea')
-Cocktail.create(name: 'Manhattan')
-Cocktail.create(name: 'Daiquiri')
-Cocktail.create(name: 'Margarita')
-Cocktail.create(name: 'Bloody Mary')
-Cocktail.create(name: 'Cosmopolitan')
-Cocktail.create(name: 'Tom Collins')
-
-puts 'Finished!'
+Ingredient.create(name: 'Lemon')
+Ingredient.create(name: 'Ice')
+Ingredient.create(name: 'Vodka')
+Ingredient.create(name: 'Ginger beer')
+Ingredient.create(name: 'Freshly squeezed lime juice')
+Ingredient.create(name: 'Lime, cut into wedges')
+Ingredient.create(name: 'Sprigs mint')
+Ingredient.create(name: 'White Cuban Ron')
+Ingredient.create(name: 'Sugar')
