@@ -22,14 +22,13 @@ if defined?(DosesController)
     let(:invalid_attributes) do
       { description: '' }
     end
-
-   describe "with invalid params" do
-        it "assigns a newly created but unsaved dose as @dose" do
-          post :create, params: { cocktail_id: @cocktail.id, :dose => invalid_attributes}
-          expect(assigns(:dose)).to be_a_new(Dose)
-        end
-
-
-
   end
+
+      describe "GET new" do
+      it "assigns a new dose as @dose" do
+        get :new, params: { cocktail_id: @cocktail.id }
+        expect(assigns(:cocktail)).to eq(@cocktail)
+        expect(assigns(:dose)).to be_a_new(Dose)
+      end
+    end
 end
