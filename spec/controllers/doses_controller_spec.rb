@@ -23,12 +23,10 @@ if defined?(DosesController)
       { description: '' }
     end
   end
-
-      describe "GET new" do
-      it "assigns a new dose as @dose" do
-        get :new, params: { cocktail_id: @cocktail.id }
-        expect(assigns(:cocktail)).to eq(@cocktail)
-        expect(assigns(:dose)).to be_a_new(Dose)
-      end
+else
+  describe 'DosesController' do
+    it 'should exist' do
+      expect(defined?(DosesController)).to eq(true)
     end
+  end
 end
