@@ -7,6 +7,12 @@ RSpec.describe 'Cocktail', type: :model do
     }
   end
 
+  let(:photo) do
+    Rack::Test::UploadedFile.new(
+      Rails.root.join('app/assets/images/moscow.jpeg'), 'image/jpg'
+    )
+  end
+
   it 'has a name' do
     cocktail = Cocktail.new(name: 'Moscow Mule')
     expect(cocktail.name).to eq('Moscow Mule')
@@ -20,8 +26,8 @@ RSpec.describe 'Cocktail', type: :model do
   end
 
   it 'name is unique' do
-    Cocktail.create!(name: 'Moscow Mule')
-    cocktail = Cocktail.new(name: 'Moscow Mule')
+    Cocktail.create!(name: 'Moscow Mule', photo: photo)
+    cocktail = Cocktail.new(name: 'Moscow Mule', photo: photo)
     expect(cocktail).not_to be_valid
   end
 
