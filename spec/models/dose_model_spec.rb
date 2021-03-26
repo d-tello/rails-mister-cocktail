@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Dose', type: :model do
   let(:moscow_mule) do
-    Cocktail.create!(name: 'Moscow Mule')
+    Cocktail.create!(name: 'Moscow Mule', photo: photo)
   end
 
   let(:vodka) do
@@ -11,6 +11,12 @@ RSpec.describe 'Dose', type: :model do
 
   let(:ginger_beer) do
     Ingredient.create!(name: 'Ginger beer')
+  end
+
+  let(:photo) do
+    Rack::Test::UploadedFile.new(
+      Rails.root.join('app/assets/images/moscow.jpeg'), 'image/jpg'
+    )
   end
 
   let(:valid_attributes) do

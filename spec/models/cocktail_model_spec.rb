@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.describe 'Cocktail', type: :model do
   let(:valid_attributes) do
     {
-      name: 'Moscow Mule'
+      name: 'Moscow Mule',
+      photo: photo
     }
   end
 
