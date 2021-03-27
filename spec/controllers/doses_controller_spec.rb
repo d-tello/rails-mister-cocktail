@@ -7,7 +7,7 @@ end
 if defined?(DosesController)
   RSpec.describe DosesController, type: :controller do
     before(:each) do
-      @cocktail = Cocktail.create!(name: 'Moscow Mule')
+      @cocktail = Cocktail.create!(name: 'Moscow Mule', photo: photo)
       @ingredient = Ingredient.create!(name: 'Vodka')
     end
 
@@ -17,6 +17,12 @@ if defined?(DosesController)
         cocktail_id: @cocktail.id,
         ingredient_id: @ingredient.id
       }
+    end
+
+    let(:photo) do
+      Rack::Test::UploadedFile.new(
+        Rails.root.join('app/assets/images/moscow.jpeg'), 'image/jpg'
+      )
     end
 
     let(:invalid_attributes) do

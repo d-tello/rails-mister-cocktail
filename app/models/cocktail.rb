@@ -6,5 +6,5 @@ class Cocktail < ApplicationRecord
   # Validations
   validates :name, uniqueness: true
   validates :name, presence: true
-  # validates :photo, presence: true
+  validates :photo, presence: true
 end
