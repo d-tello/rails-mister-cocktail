@@ -43,6 +43,11 @@ if defined?(DosesController)
         expect(assigns(:dose)).to be_a(Dose)
         expect(assigns(:dose)).to be_persisted
       end
+
+      it 'redirects after successfully created new dose' do
+        post :create, params: { cocktail_id: @cocktail.id, dose: valid_attributes }
+        expect(response).to redirect_to(@cocktail)
+      end
     end
   end
 else
