@@ -7,6 +7,12 @@ RSpec.describe 'Ingredient', type: :model do
     }
   end
 
+  let(:photo) do
+    Rack::Test::UploadedFile.new(
+      Rails.root.join('app/assets/images/moscow.jpeg'), 'image/jpg'
+    )
+  end
+
   it 'has a name' do
     ingredient = Ingredient.new(name: 'Vodka')
     expect(ingredient.name).to eq('Vodka')
@@ -29,5 +35,12 @@ RSpec.describe 'Ingredient', type: :model do
     ingredient = Ingredient.new(valid_attributes)
     expect(ingredient).to respond_to(:doses)
     expect(ingredient.doses.count).to eq(0)
+  end
+
+  it 'should not be able to destroy self if has dose children' do
+    cocktail = Cocktail.create!(name: 'Moscow Mule', photo: photo)
+    ingredient = Ingredient.create!(name: 'ice')
+    cocktail.doses.create(ingredient: ingredient, description: '50 ml')
+    expect { ingredient.destroy }.to raise_error(ActiveRecord::InvalidForeignKey)
   end
 end
