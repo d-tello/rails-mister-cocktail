@@ -24,4 +24,10 @@ RSpec.describe 'Ingredient', type: :model do
     ingredient = Ingredient.new(name: 'Vodka')
     expect(ingredient).not_to be_valid
   end
+
+  it 'has many doses' do
+    ingredient = Ingredient.new(valid_attributes)
+    expect(ingredient).to respond_to(:doses)
+    expect(ingredient.doses.count).to eq(0)
+  end
 end
