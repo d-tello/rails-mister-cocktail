@@ -39,7 +39,7 @@ RSpec.describe 'Ingredient', type: :model do
 
   it 'should not be able to destroy self if has dose children' do
     cocktail = Cocktail.create!(name: 'Moscow Mule', photo: photo)
-    ingredient = Ingredient.create!(name: 'ice')
+    ingredient = Ingredient.create!(name: 'Vodka')
     cocktail.doses.create(ingredient: ingredient, description: '50 ml')
     expect { ingredient.destroy }.to raise_error(ActiveRecord::InvalidForeignKey)
   end
