@@ -48,6 +48,18 @@ if defined?(DosesController)
         post :create, params: { cocktail_id: @cocktail.id, dose: valid_attributes }
         expect(response).to redirect_to(@cocktail)
       end
+
+      describe 'with invalid params' do
+        it 'assigns a newly created but unsaved dose as @dose' do
+          post :create, params: { cocktail_id: @cocktail.id, dose: invalid_attributes }
+          expect(assigns(:dose)).to be_a_new(Dose)
+        end
+
+        it "renders the page again with error if the params are not valid" do
+          post :create, params: { cocktail_id: @cocktail.id, dose: invalid_attributes }
+          expect(response).to render_template('new')
+        end
+      end
     end
   end
 else
