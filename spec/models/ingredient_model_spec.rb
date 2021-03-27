@@ -18,4 +18,10 @@ RSpec.describe 'Ingredient', type: :model do
     ingredient = Ingredient.new(attributes)
     expect(ingredient).not_to be_valid
   end
+
+  it 'name is unique' do
+    Ingredient.create!(name: 'Vodka')
+    ingredient = Ingredient.new(name: 'Vodka')
+    expect(ingredient).not_to be_valid
+  end
 end
