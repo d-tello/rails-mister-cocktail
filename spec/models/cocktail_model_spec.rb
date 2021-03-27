@@ -49,7 +49,6 @@ RSpec.describe 'Cocktail', type: :model do
     cocktail = Cocktail.create!(valid_attributes)
     expect(cocktail).to respond_to(:ingredients)
     expect(cocktail.ingredients.count).to eq(0)
-
     ingredient = Ingredient.create!(name: 'Vodka')
     cocktail.doses.create(ingredient: ingredient, description: '50 ml')
     expect(cocktail.ingredients.count).to eq(1)
