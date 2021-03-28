@@ -38,3 +38,7 @@ yarn-debug.log*
 
 # Local Netlify folder
 .netlify
+
+# Ignore Mac and Linux file system files
+*.swp
+.DS_Store
