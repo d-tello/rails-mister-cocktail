@@ -58,6 +58,13 @@ if defined?(CocktailsController)
           expect(response).to redirect_to(Cocktail.last)
         end
       end
+
+      describe 'with invalid params' do
+        it 'assigns a newly created but unsaved cocktail as @cocktail' do
+          post :create, params: { cocktail: invalid_attributes }
+          expect(assigns(:cocktail)).to be_a_new(Cocktail)
+        end
+      end
     end
   end
 else
