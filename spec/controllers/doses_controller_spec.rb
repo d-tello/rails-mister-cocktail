@@ -55,10 +55,18 @@ if defined?(DosesController)
           expect(assigns(:dose)).to be_a_new(Dose)
         end
 
-        it "renders the page again with error if the params are not valid" do
+        it 'renders the page again with error if the params are not valid' do
           post :create, params: { cocktail_id: @cocktail.id, dose: invalid_attributes }
           expect(response).to render_template('new')
         end
+      end
+    end
+    describe 'destroy action' do
+      it 'deletes a Dose' do
+        @dose = Dose.create!(valid_attributes)
+        expect do
+          delete :destroy, params: { id: @dose.id }
+        end.to change(Dose, :count).by(-1)
       end
     end
   end
