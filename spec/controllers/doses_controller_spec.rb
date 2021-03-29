@@ -51,9 +51,8 @@ if defined?(DosesController)
 
       describe 'with invalid params' do
         it 'assigns a newly created but unsaved dose as @dose (with change matcher)' do
-          expect do
-            post :create, params: { cocktail_id: @cocktail.id, dose: invalid_attributes }
-          end.to change(Dose, :count).by(0)
+          post :create, params: { cocktail_id: @cocktail.id, dose: invalid_attributes }
+          expect(assigns(:dose)).not_to(change { Dose.count })
         end
 
         it 'assigns a newly created but unsaved dose as @dose' do
