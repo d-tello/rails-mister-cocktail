@@ -64,6 +64,11 @@ if defined?(CocktailsController)
           post :create, params: { cocktail: invalid_attributes }
           expect(assigns(:cocktail)).to be_a_new(Cocktail)
         end
+
+        it 'renders the page again with error if the params are not valid' do
+          post :create, params: { cocktail: invalid_attributes }
+          expect(response).to render_template('new')
+        end
       end
     end
   end
