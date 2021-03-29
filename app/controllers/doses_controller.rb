@@ -9,7 +9,7 @@ class DosesController < ApplicationController
     if @dose.save
       redirect_to cocktail_path(params[:cocktail_id]), notice: 'Cocktail was successfully created.'
     else
-      render :new
+      render 'cocktails/new'
     end
   end
 
