@@ -46,12 +46,17 @@ if defined?(CocktailsController)
             post :create, params: { cocktail: valid_attributes }
           end.to change(Cocktail, :count).by(1)
         end
-      end
 
-      it 'assigns a newly created cocktail as @cocktail' do
-        post :create, params: { cocktail: valid_attributes }
-        expect(assigns(:cocktail)).to be_a(Cocktail)
-        expect(assigns(:cocktail)).to be_persisted
+        it 'assigns a newly created cocktail as @cocktail' do
+          post :create, params: { cocktail: valid_attributes }
+          expect(assigns(:cocktail)).to be_a(Cocktail)
+          expect(assigns(:cocktail)).to be_persisted
+        end
+
+        it 'redirects to the new created cocktail' do
+          post :create, params: { cocktail: valid_attributes }
+          expect(response).to redirect_to(Cocktail.last)
+        end
       end
     end
   end
