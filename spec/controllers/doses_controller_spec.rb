@@ -36,17 +36,17 @@ if defined?(DosesController)
             post :create, params: { cocktail_id: @cocktail.id, dose: valid_attributes }
           end.to change(Dose, :count).by(1)
         end
-      end
 
-      it 'assigns a newly created dose as @dose' do
-        post :create, params: { cocktail_id: @cocktail.id, dose: valid_attributes }
-        expect(assigns(:dose)).to be_a(Dose)
-        expect(assigns(:dose)).to be_persisted
-      end
+        it 'assigns a newly created dose as @dose' do
+          post :create, params: { cocktail_id: @cocktail.id, dose: valid_attributes }
+          expect(assigns(:dose)).to be_a(Dose)
+          expect(assigns(:dose)).to be_persisted
+        end
 
-      it 'redirects after successfully created new dose' do
-        post :create, params: { cocktail_id: @cocktail.id, dose: valid_attributes }
-        expect(response).to redirect_to(@cocktail)
+        it 'redirects after successfully created new dose' do
+          post :create, params: { cocktail_id: @cocktail.id, dose: valid_attributes }
+          expect(response).to redirect_to(@cocktail)
+        end
       end
 
       describe 'with invalid params' do
