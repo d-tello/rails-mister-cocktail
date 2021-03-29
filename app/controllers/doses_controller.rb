@@ -2,14 +2,13 @@ class DosesController < ApplicationController
   # create a new dose with description and ingredient
   # to add to an existing cocktail
   def create
-    @dose = Dose.new(dose_params)
-    @dose.cocktail_id = params[:cocktail_id]
-    @dose.ingredient_id = params[:dose][:ingredient_id]
+    @dose = Dose.new(cocktail_id: params[:cocktail_id], ingredient_id: params[:dose][:ingredient_id],
+                     description: params[:dose][:description])
 
     if @dose.save
       redirect_to cocktail_path(params[:cocktail_id]), notice: 'Cocktail was successfully created.'
     else
-      render 'cocktails/new'
+      render 'cocktails/show'
     end
   end
 
