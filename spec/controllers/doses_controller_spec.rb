@@ -63,7 +63,7 @@ if defined?(DosesController)
 
         it 'renders the page again with error if the params are not valid' do
           post :create, params: { cocktail_id: @cocktail.id, dose: invalid_attributes }
-          expect(response).to render_template('cocktails/new')
+          expect(response).to render_template('cocktails/show')
         end
       end
     end
