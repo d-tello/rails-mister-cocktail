@@ -24,6 +24,18 @@ if defined?(CocktailsController)
     end
 
     describe 'index action' do
+      before do
+        get :index
+      end
+
+      it 'returns a succesfull response' do
+        expect(response).to have_http_status(200)
+      end
+
+      it 'renders the index page' do
+        expect(response).to render_template :index
+      end
+
       it 'assigns all cocktails as @cocktails' do
         cocktail = Cocktail.create! valid_attributes
         get :index, params: {}
@@ -36,6 +48,12 @@ if defined?(CocktailsController)
         cocktail = Cocktail.create! valid_attributes
         get :show, params: { id: cocktail.to_param }
         expect(assigns(:cocktail)).to eq(cocktail)
+      end
+
+      it 'renders the show page' do
+        cocktail = Cocktail.create! valid_attributes
+        get :show, params: { id: cocktail.to_param }
+        expect(response).to render_template :show
       end
     end
 
