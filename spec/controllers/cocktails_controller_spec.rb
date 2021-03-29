@@ -23,7 +23,7 @@ if defined?(CocktailsController)
       )
     end
 
-    describe 'index page' do
+    describe 'index action' do
       it 'assigns all cocktails as @cocktails' do
         cocktail = Cocktail.create! valid_attributes
         get :index, params: {}
@@ -31,11 +31,21 @@ if defined?(CocktailsController)
       end
     end
 
-    describe 'show page' do
+    describe 'show action' do
       it 'assigns the requested cocktail as @cocktail' do
         cocktail = Cocktail.create! valid_attributes
         get :show, params: { id: cocktail.to_param }
         expect(assigns(:cocktail)).to eq(cocktail)
+      end
+    end
+
+    describe 'create action' do
+      describe 'with valid params' do
+        it 'creates a new Cocktail' do
+          expect do
+            post :create, params: { cocktail: valid_attributes }
+          end.to change(Cocktail, :count).by(1)
+        end
       end
     end
   end
