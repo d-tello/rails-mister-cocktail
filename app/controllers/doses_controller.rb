@@ -4,10 +4,11 @@ class DosesController < ApplicationController
   def create
     @dose = Dose.new(cocktail_id: params[:cocktail_id], ingredient_id: params[:dose][:ingredient_id],
                      description: params[:dose][:description])
-
     if @dose.save
       redirect_to cocktail_path(params[:cocktail_id]), notice: 'Cocktail was successfully created.'
     else
+      @cocktail = Cocktail.find(params[:cocktail_id])
+      @doses = @cocktail.doses
       render 'cocktails/show'
     end
   end
