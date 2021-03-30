@@ -6,6 +6,7 @@ rescue LoadError
 end
 
 if defined?(CocktailsController)
+
   RSpec.describe CocktailsController, type: :routing do
     describe 'routing' do
       it 'routes to #index' do
