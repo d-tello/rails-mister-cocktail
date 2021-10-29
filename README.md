@@ -1,7 +1,11 @@
-<h1 align="center">Welcome to rails-mister-cocktail 👋</h1>
+<h1 align="center">Rails Mister Cocktail</h1>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-0.1.0-blue.svg?cacheSeconds=2592000" />
 </p>
+
+Rails application for the creation of a database of cocktails with their ingredients.
+</br>
+The Bootstrap Framework was used for styling.
 
 ## Install
 
@@ -9,9 +13,6 @@
 yarn install
 ```
 
-## Show your support
-
-Give a ⭐️ if this project helped you!
-
-***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
+```
+ruby version 2.6.6
+```
